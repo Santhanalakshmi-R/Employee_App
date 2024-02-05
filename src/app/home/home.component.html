@@ -1,0 +1,265 @@
+<!-- <p class="text-primary">home works!</p>
+<h1>BOCXY POWERS YOUR IDEATION INTO A REAL PRODUCT!</h1>
+<nav>
+    <ng-container *ngIf="this.auth.isAuthenticated(); then authenticated; else nonauthenticated"></ng-container>
+<ng-template #authenticated>
+    
+    <a routerLink="account">account</a>
+    <form (ngSubmit)="search()">
+    <input type="search" [(ngModel)]="email" name="email"/>
+    <button type="submit">search</button>
+    <span *ngIf="this.searcherror">
+        <p [innerText]="this.searcherror"></p>
+    </span>
+</form>
+<span *ngIf="this.errormsg">
+    <p [innerText]="this.errormsg"></p>
+</span>
+<form  *ngIf="this.sts" (ngSubmit)="update()" ngNativeValidate>
+
+    <div>
+    <label>Name:</label>
+<input type="text" placeholder="Enter your name here..." name="name" required [(ngModel)]="accountDetails.name" #name="ngModel" pattern="[a-zA-Z]*" [disabled]="!this.editsts"/>
+
+</div>
+<p>
+<label>Email:</label>
+<input type="email" placeholder="Enter your email address..." name="email" required [(ngModel)]="accountDetails.email"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>DoB:</label>
+<input type="date" name="date" required [(ngModel)]="accountDetails.dob"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>Gender</label>
+<input type="radio" name="gender" value="Male" required [(ngModel)]="accountDetails.gender"  [disabled]="!this.editsts">Male
+<input type="radio" name="gender" value="Female" required [(ngModel)]="accountDetails.gender"  [disabled]="!this.editsts">Female
+</p>
+<p>
+<label>Age:</label>
+<input type="number" placeholder="Enter your age..." name="age" min="18" max="60" required [(ngModel)]="accountDetails.age"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>Phone:</label>
+<input type="tel" placeholder="Enter your Phone number..." name="phoneNo" min="18" max="60" required [(ngModel)]="accountDetails.phoneNo"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>Position:</label>
+<input type="text" placeholder="Enter your job title..." name="position" required [(ngModel)]="accountDetails.position"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>Experience:</label>
+<input type="number" placeholder="Enter your years of Experience..." name="experience" min="1" required [(ngModel)]="accountDetails.experience"  [disabled]="!this.editsts">
+</p>
+<p>
+<label>Address:</label>
+<textarea placeholder="Enter your address..." name="address" required [(ngModel)]="accountDetails.address"  [disabled]="!this.editsts"></textarea>
+</p>
+<ng-container *ngIf="!this.editsts; then editdlt; else save" ></ng-container>
+<ng-template #editdlt>
+<button type="button" (click)="edit()">Edit</button> 
+<button type="button" (click)="delete()">Delete</button> 
+</ng-template>
+<ng-template #save>
+<button type="submit">Save</button> 
+</ng-template>
+</form>
+</ng-template>
+<ng-template #nonauthenticated>
+    <a routerLink="register">Register</a>
+   <a routerLink="login">Login</a>
+</ng-template>
+</nav>
+ -->
+<!--  
+
+     <ng-container *ngIf="auth.isAuthenticated(); then authenticated else nonauthenticated"></ng-container>
+     <ng-template #authenticated>
+         <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="account">Account</a>
+             </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="email" name="email">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+             <span *ngIf="searcherror" class="ml-2">
+                 <p [innerText]="searcherror"></p>
+             </span>
+         <span *ngIf="errormsg" class="ml-2">
+             <p [innerText]="errormsg"></p>
+         </span>
+         <form *ngIf="sts" (ngSubmit)="update()" ngNativeValidate class="ml-2">
+             <div class="form-group">
+                 <label>Name:</label>
+                 <input type="text" class="form-control" placeholder="Enter your name here..." name="name" required class="form-control" [(ngModel)]="accountDetails.name" #name="ngModel" pattern="[a-zA-Z]*" [disabled]="!editsts">
+             </div>
+             <p class="form-group">
+                <label>Email:</label>
+                <input type="email" placeholder="Enter your email address..." name="email" required [(ngModel)]="accountDetails.email"  [disabled]="!this.editsts" class="form-control">
+                </p>
+                <p class="form-group">
+                <label>DoB:</label>
+                <input type="date" name="date" required [(ngModel)]="accountDetails.dob"  [disabled]="!this.editsts"  class="form-control">
+                </p>
+                 <p class="form-check form-check-inline">
+                <label>Gender</label>
+                <input type="radio" name="gender" value="Male" required [(ngModel)]="accountDetails.gender"  [disabled]="!this.editsts" >Male
+                <input type="radio" name="gender" value="Female" required [(ngModel)]="accountDetails.gender"  [disabled]="!this.editsts">Female
+                </p> 
+                <div class="form-group">
+                    <label>Gender:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="Male" required [(ngModel)]="accountDetails.gender" [disabled]="!this.editsts">
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="Female" required [(ngModel)]="accountDetails.gender" [disabled]="!this.editsts">
+                        <label class="form-check-label">Female</label>
+                    </div>
+                </div>
+                <p class="form-group">
+                <label>Age:</label>
+                <input type="number" placeholder="Enter your age..." name="age" min="18" max="60" required [(ngModel)]="accountDetails.age"  [disabled]="!this.editsts">
+                </p>
+                <p class="form-group">
+                <label>Phone:</label>
+                <input type="tel" placeholder="Enter your Phone number..." name="phoneNo" min="18" max="60" required 
+                [(ngModel)]="accountDetails.phoneNo"  [disabled]="!this.editsts">
+                </p>
+                <p class="form-group">
+                <label>Position:</label>
+                <input type="text" placeholder="Enter your job title..." name="position" required [(ngModel)]="accountDetails.position"  [disabled]="!this.editsts">
+                </p>
+                <p class="form-group">
+                <label>Experience:</label>
+                <input type="number" placeholder="Enter your years of Experience..." name="experience" min="1" required [(ngModel)]="accountDetails.experience"  [disabled]="!this.editsts">
+                </p>
+                <p  class="form-group">
+                <label>Address:</label>
+                <textarea placeholder="Enter your address..." name="address" required [(ngModel)]="accountDetails.address"  [disabled]="!this.editsts"></textarea>
+                </p>
+</form> -->
+
+<ng-container *ngIf="auth.isAuthenticated(); then authenticated else nonauthenticated "> </ng-container>
+     <ng-template #authenticated>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link">Dashboard!</a>
+          </li>
+        </ul>
+        <form class="d-flex" (ngSubmit)="search()">
+          <input class="form-control me-2" type="search" [(ngModel)]="email" name="email" placeholder="Enter your email" >
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        
+      </div>
+    </div>
+  </nav>
+  <br>
+  <p *ngIf="this.searcherror" [innerText]="this.searcherror" class="alert alert-danger"></p>
+<br>
+  <div class="container">
+    <a class="btn btn-success" routerLink="account">Click here to Create Account</a>
+  </div>
+  <br><br/>
+  <p *ngIf="this.updatests" [innerText]="this.updatests" class="alert alert-success"></p>
+<div class="container justify-content-center">
+<form *ngIf="sts" (ngSubmit)="update()" ngNativeValidate class="ml-2">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" placeholder="Enter your name here..." name="name" required class="form-control" [(ngModel)]="accountDetails.name" #name="ngModel" pattern="[a-zA-Z]*" [disabled]="!editsts">
+    </div>
+    <p class="form-group">
+       <label>Email:</label>
+       <input type="email" placeholder="Enter your email address..." name="email" required [(ngModel)]="accountDetails.email"  [disabled]="!this.editsts" class="form-control">
+       </p>
+       <p class="form-group">
+       <label>DoB:</label>
+       <input type="date" name="date" required [(ngModel)]="accountDetails.dob"  [disabled]="!this.editsts"  class="form-control">
+       </p>
+       
+       <div class="form-group">
+           <label>Gender:</label><br>
+           <div class="form-check form-check-inline">
+               <input type="radio"  name="gender" value="Male" required [(ngModel)]="accountDetails.gender" [disabled]="!this.editsts">
+               <label class="form-check-label">Male</label>
+           </div>
+           <div class="form-check form-check-inline">
+               <input type="radio"  name="gender" value="Female" required [(ngModel)]="accountDetails.gender" [disabled]="!this.editsts">
+               <label class="form-check-label">Female</label>
+           </div>
+       </div>
+       <p class="form-group">
+       <label>Age:</label>
+       <input type="number" placeholder="Enter your age..." name="age" min="18" max="60" required [(ngModel)]="accountDetails.age"  [disabled]="!this.editsts" class="form-control">
+       </p>
+       <p class="form-group">
+       <label>Phone:</label>
+       <input type="tel" placeholder="Enter your Phone number..." name="phoneNo" min="18" max="60" required class="form-control"
+       [(ngModel)]="accountDetails.phoneNo"  [disabled]="!this.editsts">
+       </p>
+       <p class="form-group">
+       <label>Position:</label>
+       <input type="text" placeholder="Enter your job title..." name="position" required [(ngModel)]="accountDetails.position"  [disabled]="!this.editsts" class="form-control">
+       </p>
+       <p class="form-group">
+       <label>Experience:</label>
+       <input type="number" placeholder="Enter your years of Experience..." name="experience" min="1" required [(ngModel)]="accountDetails.experience"  [disabled]="!this.editsts" class="form-control">
+       </p>
+       <p  class="form-group">
+       <label>Address:</label>
+       <textarea placeholder="Enter your address..." name="address" required [(ngModel)]="accountDetails.address" class="form-control" [disabled]="!this.editsts"></textarea>
+       </p>
+           
+        
+        <ng-container *ngIf="!this.editsts; then editdlt; else save" ></ng-container>
+            <ng-template #editdlt>
+                <div class="containter justify-content-center">
+                <div class="row">
+                    <div class="col-2">
+            <button type="button" class="btn btn-info" (click)="edit()">Edit</button> </div>
+            <div class="col-2">
+            <button type="button" class="btn btn-danger" (click)="delete()">Delete</button> 
+            </div></div>
+        </div>
+            </ng-template>
+            <div class="justify-content-center">
+            <ng-template #save>
+            <button type="submit" class="btn btn-success">Save</button> 
+            </ng-template>
+</div>
+        
+        </form>
+        </div>
+</ng-template>
+     <ng-template #nonauthenticated>
+       
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+            <div class="container-fluid">
+                <!-- <div class="navbar-header"> -->
+         <ul class="nav navbar-nav">
+            <li class="navbar-text">Home</li>
+        
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="register">Register</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="login">Login</a>
+             </li>
+         </ul>
+        </div>
+
+        </nav>
+        <body>
+            <h3 class="text-success text-center">Welcome to home page.</h3>
+        </body>
+     </ng-template>
+
+ 

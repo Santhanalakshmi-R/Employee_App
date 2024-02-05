@@ -1,0 +1,74 @@
+<!-- <div class="container">
+<P class="text-primary lead">Create Your Account</P>
+<div class="well">
+    <div class="containter">
+<form #f="ngForm"  (ngSubmit)="add_User(f)" method="post" >
+    <div class="row">
+    <p>
+        <label>user name:</label>
+        <input type="text" name="name" placeholder="Enter your name" pattern=" [a-zA-Z]*"  required [(ngModel)]=new_User.name #name="ngModel">
+    
+        <span *ngIf="this.submit&&name.errors?.['required']">Please fill out al the required fields.</span>
+    </p>
+    <p>
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Enter your email address"  [(ngModel)]="new_User.email" #email="ngModel" required>
+        <span *ngIf="this.submit&&email.errors?.['required']">Please fill out al the required fields.</span>
+       
+    </p>
+    <p>
+        <label>Password:</label>
+    <input type="{{ showPassword ? 'text' : 'password' }}" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$" [(ngModel)]="new_User.password" #password="ngModel" required>
+
+<span *ngIf="submit && password.errors?.['required']">Please fill out all the required fields.</span>
+<span *ngIf="submit && password.errors?.['pattern']">Password must contain at least 8 characters including one uppercase letter, one lowercase letter, one digit, and one special character.</span>
+</p>
+<span *ngIf="this.errormsg"><p [innerText]="this.errormsg"></p></span>
+    <button type="submit" (click)="this.submit=true" class="btn btn-primary">Register</button>
+    
+    <p>Already have an account? Please <a routerLink="/login" class="">Login</a></p>
+</div>
+</form>
+</div>
+</div>
+</div> -->
+
+
+<div class="container">
+    <p class="text-primary lead">Create Your Account</p>
+    <div class="card">
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="f.form.valid&&add_User(f)" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">User name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" pattern="[a-zA-Z]*" required [(ngModel)]="new_User.name" #name="ngModel">
+                    <div class="invalid-feedback" *ngIf="this.submit && name.errors?.['required']">
+                        Please fill out all the required fields.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" [(ngModel)]="new_User.email" #email="ngModel" required>
+                    <div class="invalid-feedback" *ngIf="this.submit && email.errors?.['required']">Please fill out all the required fields.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$" [(ngModel)]="new_User.password" #password="ngModel" required>
+                    <div class="invalid-feedback" *ngIf="submit && password.errors?.['required']">Please fill out all the required fields.</div>
+                    <div class="invalid-feedback" *ngIf="submit && password.errors?.['pattern']">Password must contain at least 8 characters including one uppercase letter, one lowercase letter, one digit, and one special character.</div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="terms" required>
+                    <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                </div>
+                <p *ngIf="this.errormsg" class="alert alert-danger">
+                {{ errormsg }}
+            </p>
+                <button type="submit" (click)="this.submit=true" class="btn btn-primary">Register</button>
+            </form>
+           
+            
+            
+            <p class="mt-3">Already have an account? Please <a routerLink="/login" class="">Login</a></p>
+        </div>
+    </div>
+</div>

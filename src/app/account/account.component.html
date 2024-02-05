@@ -1,0 +1,100 @@
+<!-- <p class="text-primary">Add </p>
+<span *ngIf="this.errormsg">
+    <p [innerText]="this.errormsg"></p>
+</span>
+<form (ngSubmit)="addAccountDetails()" ngNativeValidate>
+            <div>
+            <label>Name:</label>
+        <input type="text" placeholder="Enter your name here..." name="name" required [(ngModel)]="accountDetails.name" #name="ngModel" pattern="[a-zA-Z]*"/>
+    </div>
+    <p>
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email address..." name="email" required [(ngModel)]="accountDetails.email">
+    </p>
+    <p>
+        <label>DoB:</label>
+        <input type="date" name="date" required [(ngModel)]="accountDetails.dob">
+    </p>
+    <p>
+        <label>Gender</label>
+        <input type="radio" name="gender" value="Male" required [(ngModel)]="accountDetails.gender">Male
+        <input type="radio" name="gender" value="Female" required [(ngModel)]="accountDetails.gender">Female
+    </p>
+    <p>
+        <label>Age:</label>
+        <input type="number" placeholder="Enter your age..." name="age" min="18" max="60" required [(ngModel)]="accountDetails.age">
+    </p>
+    <p>
+        <label>Phone:</label>
+        <input type="tel" placeholder="Enter your Phone number..." name="phoneNo" min="18" max="60" required [(ngModel)]="accountDetails.phoneNo">
+    </p>
+    <p>
+        <label>Position:</label>
+        <input type="text" placeholder="Enter your job title..." name="position" required [(ngModel)]="accountDetails.position">
+    </p>
+    <p>
+        <label>Experience:</label>
+        <input type="number" placeholder="Enter your years of Experience..." name="experience" min="1" required [(ngModel)]="accountDetails.experience">
+    </p>
+    <p>
+        <label>Address:</label>
+        <textarea placeholder="Enter your address..." name="address" required [(ngModel)]="accountDetails.address"></textarea>
+    </p>
+    <button type="submit">Create</button> 
+
+</form> -->
+<div class="containter">
+<h3 class="text-primary justify-content-center">Add your details here</h3>
+<span *ngIf="errormsg" class="alert alert-danger">
+    <p [innerText]="errormsg"></p>
+</span>
+    <p *ngIf="errormsg" class="alert alert-danger" [innerText]="response"></p>
+    <p *ngIf="response" class="alert alert-success" [innerText]="response"></p>
+
+<form (ngSubmit)="addAccountDetails()" ngNativeValidate class="container mt-5">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" placeholder="Enter your name here..." name="name" required [(ngModel)]="accountDetails.name" #name="ngModel" pattern="[a-zA-Z]*"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter your email address..." name="email" required [(ngModel)]="accountDetails.email">
+    </div>
+    <div class="form-group">
+        <label for="dob">DoB:</label>
+        <input type="date" class="form-control" name="date" required [(ngModel)]="accountDetails.dob">
+    </div>
+    <div class="form-group">
+        <label>Gender:</label><br>
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="gender" value="Male" required [(ngModel)]="accountDetails.gender">
+            <label class="form-check-label">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="gender" value="Female" required [(ngModel)]="accountDetails.gender">
+            <label class="form-check-label">Female</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" placeholder="Enter your age..." name="age" min="18" max="60" required [(ngModel)]="accountDetails.age">
+    </div>
+    <div class="form-group">
+        <label for="phoneNo">Phone:</label>
+        <input type="tel" class="form-control" placeholder="Enter your Phone number..." name="phoneNo"  required [(ngModel)]="accountDetails.phoneNo">
+    </div>
+    <div class="form-group">
+        <label for="position">Position:</label>
+        <input type="text" class="form-control" placeholder="Enter your job title..." name="position" required [(ngModel)]="accountDetails.position">
+    </div>
+    <div class="form-group">
+        <label for="experience">Experience:</label>
+        <input type="number" class="form-control" placeholder="Enter your years of Experience..." name="experience" min="1" required [(ngModel)]="accountDetails.experience">
+    </div>
+    <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea class="form-control" placeholder="Enter your address..." name="address" required [(ngModel)]="accountDetails.address"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button> 
+</form>
+</div>

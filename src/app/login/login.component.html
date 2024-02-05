@@ -1,0 +1,41 @@
+<!-- <p>Login now</p>
+<form #f="ngForm"  (ngSubmit)="f.form.valid&&login()" >
+    <p>
+    <label>Email:</label>
+    <input type="email" name="email" [(ngModel)]="email" #mail="ngModel" required>
+    <span *ngIf="this.submit&&mail.errors?.['required']">Please fill out this field.</span>
+    </p>
+    <p>
+    <label>Password:</label>
+    <input type="password" name="password" [(ngModel)]="password" #pass="ngModel" required>
+    </p>
+    <span *ngIf="this.submit&&pass.errors?.['required']">
+        Please fill out this field.</span>
+    <span *ngIf="this.errormsg">
+        <p [innerText]="this.errormsg"></p>
+    </span>
+
+    <button type="submit" (click)="this.submit=true">Login</button>
+    <div>
+       Don't have an account? Please <a routerLink="register">Register</a>
+    </div>
+</form> -->
+
+<div class="container">
+    <p>Login now</p>
+    <form #f="ngForm" (ngSubmit)="f.form.valid && login()" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="email" [(ngModel)]="email" #mail="ngModel" class="form-control" required>
+            <div class="invalid-feedback" *ngIf="this.submit && mail.errors?.['required']">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" [(ngModel)]="password" #pass="ngModel" class="form-control" required>
+            <div class="invalid-feedback" *ngIf="this.submit && pass.errors?.['required']">Please fill out this field.</div>
+        </div>
+        <span><p *ngIf="this.errormsg" class="alert alert-danger">{{ errormsg }}></p></span>
+        <button type="submit" class="btn btn-primary" (click)="this.submit=true">Login</button>
+        <div class="mt-3">Don't have an account? Please <a routerLink="register">Register</a></div>
+    </form>
+</div>
